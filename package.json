@@ -1,0 +1,36 @@
+{
+  "name": "gaintext",
+  "description": "GainText - plain text source code for the semantic web",
+  "homepage": "https://github.com/gaintext/gaintext.js",
+  "keywords": [
+    "semantic",
+    "plain text",
+    "language"
+  ],
+  "version": "0.0.0",
+  "author": "Martin Waitz <tali@admingilde.org>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gaintext/gaintext.js"
+  },
+  "bugs": {
+    "url": "https://github.com/gaintext/gaintext.js/issues"
+  },
+  "main": "./lib/gaintext/index.js",
+  "bin": {
+    "gaintext": "./src/gaintext"
+  },
+  "scripts": {
+    "prepublish": "coffee --compile --map --output lib/gaintext/ src/",
+    "test": "coffee --compile --map --output lib/gaintext/ src/ && mocha"
+  },
+  "dependencies": {
+    "packrattle": "^3.0.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "coffee-script": "^1.7.1",
+    "mocha": "^1.21.4"
+  }
+}
