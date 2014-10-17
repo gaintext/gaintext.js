@@ -1,4 +1,6 @@
 
+{seq} = require 'packrattle'
+
 exports.flatten = flatten = (array) ->
   flattened = []
   for element in array
@@ -23,3 +25,5 @@ exports.collapseText = collapseText = (array) ->
         collapsed.push text
     collapsed
 
+exports.flatseq = flatseq = (ps...) ->
+    seq(ps...).onMatch flatten

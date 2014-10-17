@@ -1,6 +1,6 @@
 
-{newParser, alt, drop, repeat, optional, regex, seq} = require('packrattle')
-{collapseText, flatten} = require('./helpers')
+{newParser, alt, drop, repeat, optional, regex, seq} = require 'packrattle'
+{collapseText, flatten} = require './helpers'
 
 
 identifier = /\S+/
@@ -37,9 +37,9 @@ anyLineChar = regex(/[^\r\n]/).onMatch flatten
 # consume possile quote characters when they are adjacent to text
 noMarkup = regex(/[a-zA-Z0-9]+[^\[\r\n]?/).onMatch flatten
 # check for no more adjacent text
-noText = drop(/[^a-zA-Z0-9]/).check()
+noText = drop(/[a-zA-Z0-9]/).not_().check()
 
-textWithMarkup = repeated( alt noMarkup, inlineMarkup, anyLineChar )
+textWithMarkup = repeated (alt noMarkup, inlineMarkup, anyLineChar), minCount=1
 
 inlineAttributes = seq identifier, '=', quotedString
 inlineElement = (name, attributes=inlineAttributes, contents=textWithMarkup) ->
@@ -64,6 +64,5 @@ registerInlineMarkup inlineQuote('em', '*')
 registerInlineMarkup inlineQuote('em', '_')
 registerInlineMarkup inlineQuote('reference', '[[', ']]')
 
-newLine = drop(regex /\r?\n/)
-exports.line = line = seq(textWithMarkup, newLine).commit().onMatch flatten
+exports.line = line = textWithMarkup
 

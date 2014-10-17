@@ -1,12 +1,14 @@
 
-helpers = require('../lib/gaintext/helpers')
+helpers = require '../lib/gaintext/helpers'
 
-{expect} = require('chai')
+{expect} = require 'chai'
+{drop} = require 'packrattle'
 
 
 describe "helpers", ->
 
     describe "collapseText", ->
+
         it "doesn't touch empty lists", ->
             expect( helpers.collapseText [] ).to.eql []
 
@@ -22,7 +24,9 @@ describe "helpers", ->
         it "collapses strings between lists", ->
             expect( helpers.collapseText [[1,2], "a", "b", [8,9]] ).to.eql [[1,2], "ab", [8,9]]
 
+
     describe "flatten", ->
+
         it "doesn't modify normal lists", ->
             expect( helpers.flatten [1, 2, 3] ).to.eql [1, 2, 3]
 
@@ -34,4 +38,10 @@ describe "helpers", ->
 
         it "removes null elements", ->
             expect( helpers.flatten [1, null, 3,] ).to.eql [1, 3]
+
+
+    describe "flatseq", ->
+
+        it "returs a list of matched content", ->
+            expect( helpers.flatseq(drop("a"), "b", drop("c"), "d").run("abcd") ).to.eql ["b", "d"]
 
