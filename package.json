@@ -31,6 +31,7 @@
   "devDependencies": {
     "chai": "^1.9.2",
     "coffee-script": "^1.7.1",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "mocha-better-spec-reporter": "^1.1.1"
   }
 }
