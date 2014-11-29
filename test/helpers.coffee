@@ -1,5 +1,5 @@
 
-helpers = require '../lib/gaintext/helpers'
+helpers = require '../src/helpers'
 
 {expect} = require 'chai'
 {drop} = require 'packrattle'

@@ -1,7 +1,7 @@
 
 {expect} = require 'chai'
 
-{line} = require '../lib/gaintext/parser_line'
+{line} = require '../src/parser_line'
 
 
 describe 'parser_line', ->

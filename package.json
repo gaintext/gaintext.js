@@ -23,7 +23,7 @@
   },
   "scripts": {
     "prepublish": "coffee --compile --map --output lib/gaintext/ src/",
-    "test": "coffee --compile --map --output lib/gaintext/ src/ && mocha"
+    "test": "env MOCHA_REPORTER_STACK_EXCLUDE=packrattle mocha"
   },
   "dependencies": {
     "packrattle": "^3.0.1"

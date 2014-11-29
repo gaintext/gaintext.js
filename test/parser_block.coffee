@@ -1,7 +1,7 @@
 
 {expect} = require 'chai'
 
-{oneLine, block, document} = require '../lib/gaintext/parser_block'
+{oneLine, block, document} = require '../src/parser_block'
 
 
 
