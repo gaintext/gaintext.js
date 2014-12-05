@@ -18,6 +18,12 @@ describe 'parser_line', ->
             res = line.run 'Hello World.'
             expect(res).to.eql ['Hello World.']
 
+        it 'parses long text line', ->
+            long = "A bc def ghij klmno pqrstu vwxyzäö ü1234567 890 "
+            long = long + long + long + long
+            res = line.run long
+            expect(res).to.eql [long]
+
         it 'parses simple element', ->
             res = line.run '[math]'
             expect(res).to.eql [ name: 'math', attributes: [], contents: [] ]
