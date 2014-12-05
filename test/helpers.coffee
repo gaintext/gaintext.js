@@ -45,3 +45,20 @@ describe "helpers", ->
         it "returs a list of matched content", ->
             expect( helpers.flatseq(drop("a"), "b", drop("c"), "d").run("abcd") ).to.eql ["b", "d"]
 
+
+    describe "within", ->
+
+        it "fails if the selector fails", ->
+            p = helpers.within('a', /.*/)
+            expect( -> p.run 'ba' ).to.throw /Expected.*'a'/
+
+        it.skip "selects text", ->
+            p = helpers.within(/a*/, /.*/)
+            expect( p.run 'aab' ).to.eql 'aa'
+
+        it.skip "fails if the inner parser fails", ->
+            p = helpers.within('a', /b*/)
+            expect( -> p.run 'aab' ).to.throw /Expected.*'b'/
+
+
+

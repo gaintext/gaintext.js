@@ -4,17 +4,7 @@
 
 
 identifier = /\S+/
-spanName = identifier
-quotedString = alt( /'[^']*'/, /"[^"]*"/ ) # TBD: have to support embedded elements?
-spanAttr = seq ' ', identifier, '=', quotedString
-spanAttrs = repeat spanAttr
-spanContents =
-exports.span = span = seq('[', spanName,
-           spanAttrs,
-           optional(seq(' ', spanAttrs)),
-           optional(seq(':', spanContents)),
-           ']').onMatch (m) ->
-    m
+quotedString = alt( /'[^']*'/, /"[^"]*"/ )
 
 inlineMarkup = alt()
 inlineMarkup.describer = "inline markup"
