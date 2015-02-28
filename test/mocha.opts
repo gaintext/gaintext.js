@@ -1,2 +1,4 @@
 --compilers coffee:coffee-script/register
 --reporter mocha-better-spec-reporter
+--throw-deprecation
+--check-leaks
