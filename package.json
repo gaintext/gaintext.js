@@ -26,6 +26,7 @@
     "test": "env MOCHA_REPORTER_STACK_EXCLUDE=packrattle mocha"
   },
   "dependencies": {
+    "mona-parser": "tali/mona#develop",
     "packrattle": "^3.0.1"
   },
   "devDependencies": {
