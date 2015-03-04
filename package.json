@@ -23,7 +23,7 @@
   },
   "scripts": {
     "prepublish": "coffee --compile --map --output lib/gaintext/ src/",
-    "test": "env MOCHA_REPORTER_STACK_EXCLUDE=packrattle mocha"
+    "test": "mocha -R dot"
   },
   "dependencies": {
     "mona-parser": "tali/mona#develop",
