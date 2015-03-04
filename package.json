@@ -19,7 +19,7 @@
   },
   "main": "./lib/gaintext/index.js",
   "bin": {
-    "gaintext": "./src/gaintext"
+    "gaintext": "./bin/gaintext"
   },
   "scripts": {
     "prepublish": "coffee --compile --map --output lib/gaintext/ src/",
@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "mona-parser": "tali/mona#develop",
+    "nomnom": "^1.8.0",
     "packrattle": "^3.0.1"
   },
   "devDependencies": {
