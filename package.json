@@ -3,9 +3,12 @@
   "description": "GainText - plain text source code for the semantic web",
   "homepage": "https://github.com/gaintext/gaintext.js",
   "keywords": [
-    "semantic",
+    "document",
+    "domain specific language",
     "plain text",
-    "language"
+    "semantic web",
+    "source code",
+    "web"
   ],
   "version": "0.0.0",
   "author": "Martin Waitz <tali@admingilde.org>",
