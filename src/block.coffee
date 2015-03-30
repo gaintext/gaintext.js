@@ -49,7 +49,7 @@ class ParserScope
         return mona.or parsers...
 
 
-globalScope = new ParserScope()
+exports.globalScope = globalScope = new ParserScope()
 
 
 class NestedParserScope extends ParserScope
@@ -245,14 +245,3 @@ exports.sameIndent = sameIndent = mona.sequence (parse) ->
     else
         return mona.string level
 
-
-anyName = mona.text mona.noneOf(': \t\n'), min: 1
-exports.anyBlock = anyBlock = new NamedBlockElement anyName
-exports.anySpan = anySpan = new NamedSpanElement anyName
-
-globalScope.addSpan(anySpan)
-globalScope.addBlock(anyBlock)
-globalScope.addBlock(new Paragraph())
-
-exports.document = document =
-    mona.followedBy collect(globalScope.blockParser()), vskip
