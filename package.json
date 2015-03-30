@@ -31,8 +31,7 @@
   },
   "dependencies": {
     "mona-parser": "tali/mona#develop",
-    "nomnom": "^1.8.0",
-    "packrattle": "^3.0.1"
+    "nomnom": "^1.8.0"
   },
   "devDependencies": {
     "chai": "^2.2.0",
