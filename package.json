@@ -25,6 +25,7 @@
     "gaintext": "./bin/gaintext"
   },
   "scripts": {
+    "coverage": "mocha -R html-cov > coverage.html",
     "lint": "coffeelint src",
     "prepublish": "coffee --compile --map --output lib/gaintext/ src/",
     "test": "mocha -R dot"
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "chai": "^2.2.0",
+    "coffee-coverage": "^0.4.5",
     "coffee-script": "^1.9.1",
     "coffeelint": "^1.9.3",
     "mocha": "^2.0.1",
