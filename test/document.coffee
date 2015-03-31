@@ -11,33 +11,39 @@ mona = require 'mona-parser'
 describe 'document', ->
 
     it 'parses a single element', ->
-        expect(mona.parse sut.document, "div:\n").to.eql [
+        text = "div:\n"
+        expect(mona.parse sut.document, text).to.eql [
             name: 'div', title: '', content: []
         ]
 
     it 'parses several elements', ->
-        expect(mona.parse sut.document, "div:\npre:\n").to.eql [
+        text = "div:\npre:\n"
+        expect(mona.parse sut.document, text).to.eql [
             {name: 'div', title: '', content: []}
             {name: 'pre', title: '', content: []}
         ]
 
     it 'parses a single paragraph', ->
-        expect(mona.parse sut.document, "Hello World\n").to.eql [
+        text = "Hello World\n"
+        expect(mona.parse sut.document, text).to.eql [
             [['Hello World']]
         ]
 
     it 'parses a line which is similar to an element', ->
-        expect(mona.parse sut.document, "Hello World:\n").to.eql [
+        text = "Hello World:\n"
+        expect(mona.parse sut.document, text).to.eql [
             [['Hello World:']]
         ]
 
     it 'ignores leading blank lines', ->
-        expect(mona.parse sut.document, "\n\nparagraph\n").to.eql [
+        text = "\n\nparagraph\n"
+        expect(mona.parse sut.document, text).to.eql [
             [['paragraph']]
         ]
 
     it 'ignores trailing blank lines', ->
-        expect(mona.parse sut.document, "\nparagraph\n\n").to.eql [
+        text = "\nparagraph\n\n"
+        expect(mona.parse sut.document, text).to.eql [
             [['paragraph']]]
 
     it 'parses multiple paragraphs', ->
