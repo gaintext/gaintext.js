@@ -12,9 +12,30 @@ anyName = mona.text mona.noneOf(': \t\n'), min: 1
 exports.anyBlock = anyBlock = new NamedBlockElement anyName
 exports.anySpan = anySpan = new NamedSpanElement anyName
 
-globalScope.addSpan(anySpan)
-globalScope.addBlock(anyBlock)
+
+# tags which are translated to HTML 1:1
+spanTags = [
+    'a', 'em', 'i', 'img', 'link', 'span'
+]
+
+for tag in spanTags
+    globalScope.addSpan new NamedSpanElement tag
+
+# tags which are translated to HTML 1:1
+blockTags = [
+    'code'
+    'div'
+    'img'
+    'header'
+    'pre'
+    'section'
+]
+
+for tag in blockTags
+    globalScope.addBlock new NamedBlockElement tag
+
 globalScope.addBlock(new Paragraph())
+
 
 exports.document = document =
     mona.followedBy collect(globalScope.blockParser()), vskip

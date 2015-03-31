@@ -11,14 +11,14 @@ mona = require 'mona-parser'
 describe 'document', ->
 
     it 'parses a single element', ->
-        expect(mona.parse sut.document, "hello:\n").to.eql [
-            name: 'hello', title: '', content: []
+        expect(mona.parse sut.document, "div:\n").to.eql [
+            name: 'div', title: '', content: []
         ]
 
-    it 'parses a several elements', ->
-        expect(mona.parse sut.document, "hello:\nworld:\n").to.eql [
-            {name: 'hello', title: '', content: []}
-            {name: 'world', title: '', content: []}
+    it 'parses several elements', ->
+        expect(mona.parse sut.document, "div:\npre:\n").to.eql [
+            {name: 'div', title: '', content: []}
+            {name: 'pre', title: '', content: []}
         ]
 
     it 'parses a single paragraph', ->
@@ -50,18 +50,18 @@ describe 'document', ->
     it 'parses hierarchy of block elements', ->
         text =
             """
-            example: a simple document
+            div: a simple document
               Introduction text
               for the example
 
-              foo:
+              pre:
                 text
 
             """
         expect(mona.parse sut.document, text).to.eql [
-            name: 'example', title: 'a simple document', content: [
+            name: 'div', title: 'a simple document', content: [
                 [['Introduction text'], ['for the example']]
-                name: 'foo', title: '', content: [[['text']]]
+                name: 'pre', title: '', content: [[['text']]]
             ]
         ]
 
